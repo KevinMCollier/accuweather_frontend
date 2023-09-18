@@ -29,12 +29,11 @@ function LocationsList({ setSelectedLocationId }) {
 
   return (
     <div>
-      <h1>Locations</h1>
+      <h3>Your Locations</h3>
       <ul>
         {locations.map(location => (
           <li key={location.id}>
-            {location.name}
-            <button onClick={()=> setSelectedLocationId(location.id)}>Show Weather</button>
+            <button onClick={()=> setSelectedLocationId(location.id)}>{location.name}</button>
           </li>
         ))}
       </ul>
