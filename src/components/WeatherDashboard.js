@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import LocationsList from '.LocationsList';
-import WeatherData from '.WeatherData';
+import LocationsList from './LocationsList';
+import WeatherData from './WeatherData';
 
 
 function WeatherDashboard() {

@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React from 'react';
-import LocationsList from './components/LocationsList';
+import WeatherDashboard from './components/WeatherDashboard';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         </a>
       </header>
       <main>
-        <LocationsList />
+        <WeatherDashboard />
       </main>
     </div>
   );
