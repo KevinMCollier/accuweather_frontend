@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function LocationsList() {
+function LocationsList({ setSelectedLocationId }) {
   const [locations, setLocations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -32,7 +32,10 @@ function LocationsList() {
       <h1>Locations</h1>
       <ul>
         {locations.map(location => (
-          <li key={location.id}>{location.name}</li>
+          <li key={location.id}>
+            {location.name}
+            <button onClick={()=> setSelectedLocationId(location.id)}>Show Weather</button>
+          </li>
         ))}
       </ul>
     </div>

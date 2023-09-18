@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import LocationsList from '.LocationsList';
+import WeatherDisplay from './WeatherDisplay';
 
 function WeatherData({ locationId }) {
   const [weather, setWeather] = useState(null);
@@ -26,7 +26,7 @@ function WeatherData({ locationId }) {
   if (loading) return <div>Loading weather...</div>;
 
   return (
-    <LocationsList weatherData={weather} />
+    <WeatherDisplay weather={weather} />
   );
 }
 
