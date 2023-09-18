@@ -29,7 +29,7 @@ function LocationsList({ setSelectedLocationId }) {
 
   return (
     <div>
-      <h3>Your Locations</h3>
+      <h3>Saved Locations</h3>
       <ul>
         {locations.map(location => (
           <li key={location.id}>

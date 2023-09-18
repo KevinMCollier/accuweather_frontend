@@ -32,7 +32,7 @@ function WeatherDisplay({ weather }) {
         <div className="temperature">
           <h4>{temperature}°</h4>
           <div className="feels-like">
-            <p>Feels like: {feelsLike}°</p>
+            <p>Feels like {feelsLike}°</p>
           </div>
         </div>
       </div>
