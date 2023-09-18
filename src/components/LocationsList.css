@@ -1,0 +1,40 @@
+.locations-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.locations-title {
+  margin-right: 20px;
+}
+
+.locations-list {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+.locations-list li {
+  margin-right: 10px; /* Space between buttons */
+}
+
+.locations-list button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 4px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition-duration: 0.4s; /* Smooth transition for hover effects */
+}
+
+.locations-list button:hover {
+  background-color: #45a049; /* Darker green */
+}
