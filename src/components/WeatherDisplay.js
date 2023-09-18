@@ -42,7 +42,8 @@ function WeatherDisplay({ weather }) {
           <p>{weatherDescription}</p>
         </div>
         <div className="more-details">
-          <a href="#">More Details</a>
+          {/* <a href="#">More Details</a> */}
+          <p>More Details</p>
         </div>
       </div>
     </div>
