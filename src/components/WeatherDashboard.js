@@ -7,6 +7,10 @@ function WeatherDashboard() {
   const [selectedLocationId, setSelectedLocationId] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const handleSearchResult = (data) => {
+    setWeather(data);
+    setLoading(false);
+  }
 
   useEffect(() => {
     if (!selectedLocationId) return;  // Only fetch if a location is selected
@@ -30,7 +34,7 @@ function WeatherDashboard() {
 
   return (
     <div>
-      <Navbar weather={weather} loading={loading} />
+      <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} />
       <LocationsList setSelectedLocationId={setSelectedLocationId} />
       {selectedLocationId && <WeatherData weather={weather} loading={loading} />}
     </div>
