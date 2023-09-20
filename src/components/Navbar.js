@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './Navbar.css'
 
-function Navbar({ weather, loading }) {
+function Navbar({ weather, loading, onSearch }) {
   const [searchQuery, setSearchQuery] = useState('');
   const [searchResults, setSearchResults] = useState(null);
 
@@ -9,7 +9,8 @@ function Navbar({ weather, loading }) {
     fetch(`http://localhost:3000/api/v1/locations/search?query=${searchQuery}`)
     .then(response => response.json())
     .then(data => {
-      setSearchResults(data);
+      // setSearchResults(data);
+      onSearch(data);
     })
     .catch(error => {
       console.error("Error searching for location: ", error);
