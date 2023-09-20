@@ -7,8 +7,10 @@ function WeatherDashboard() {
   const [selectedLocationId, setSelectedLocationId] = useState(null);
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [searchedCityName, setSearchedCityName] = useState("");
   const handleSearchResult = (data) => {
     setWeather(data);
+    setSearchedCityName(data.city_name);
     setLoading(false);
   }
 
@@ -35,6 +37,7 @@ function WeatherDashboard() {
   return (
     <div>
       <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} />
+      <h3>Weather for {searchedCityName}</h3>
       <LocationsList setSelectedLocationId={setSelectedLocationId} />
       {selectedLocationId && <WeatherData weather={weather} loading={loading} />}
     </div>
