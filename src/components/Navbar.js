@@ -3,7 +3,7 @@ import './Navbar.css'
 
 function Navbar({ weather, loading, onSearch }) {
   const [searchQuery, setSearchQuery] = useState('');
-  const [searchResults, setSearchResults] = useState(null);
+  const [searchResults] = useState(null);
 
   const handleSearch = () => {
     fetch(`http://localhost:3000/api/v1/locations/search?query=${searchQuery}`)

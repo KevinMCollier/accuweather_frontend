@@ -5,22 +5,22 @@
   margin-bottom: 15px;
 }
 
-.locations-title {
+.location-name {
   margin-right: 20px;
 }
 
-.locations-list {
+.location-name {
   list-style-type: none;
   padding: 0;
   display: flex;
   align-items: center;
 }
 
-.locations-list li {
+.location-name li {
   margin-right: 10px; /* Space between buttons */
 }
 
-.locations-list button {
+.location-name button {
   background-color: #4CAF50; /* Green */
   border: none;
   color: white;
@@ -35,6 +35,6 @@
   transition-duration: 0.4s; /* Smooth transition for hover effects */
 }
 
-.locations-list button:hover {
+.location-name button:hover {
   background-color: #45a049; /* Darker green */
 }

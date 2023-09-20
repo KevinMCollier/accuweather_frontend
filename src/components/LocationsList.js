@@ -33,7 +33,7 @@ function LocationsList({ setSelectedLocationId }) {
     <div>
       <div className="locations-header">
         <h3 className="locations-title">Saved Locations</h3>
-        <ul className="locations-list">
+        <ul className="location-name">
           {locations.map(location => (
             <li key={location.id}>
               <button onClick={()=> setSelectedLocationId(location.id)}>{location.name}</button>
