@@ -2,6 +2,7 @@
   background-color: #333; /* Dark grey color */
   width: 100%;
   padding: 5px 0;
+  margin-bottom: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,11 +16,18 @@
   align-items: center;
 }
 
+.navbar-location-container {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  padding-right: 40px;
+}
+
 .navbar-location-name {
   color: white;
   font-size: 18px;
   font-weight: bold;
-  padding-right: 10px;
+  padding-right: 20px;
 }
 
 .navbar-current-weather {
@@ -30,7 +38,7 @@
 .navbar-temperature {
   color: white;
   font-size: 18px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .navbar-weather-icon {
@@ -42,7 +50,7 @@
 
 /* Additional styles for the search functionality */
 .search-container {
-  padding-left: 70px;
+  padding-left: 140px;
   display: flex;
   align-items: center;
   gap: 10px; /* Spacing between the search bar and the button */

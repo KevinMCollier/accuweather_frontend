@@ -55,8 +55,7 @@ function WeatherDashboard() {
 
   return (
     <div>
-      <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} />
-      <h3>Weather for {searchedCityName}</h3>
+      <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} searchedCityName={searchedCityName} />
       {/* <LocationsList setSelectedLocationId={setSelectedLocationId} /> */}
       {weather && <WeatherData weather={weather} loading={loading} />}
     </div>
