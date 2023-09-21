@@ -6,7 +6,9 @@ function WeatherDisplay({ weather }) {
   console.log(weather);
   if (!weather) return null;
 
-  const currentTime = new Date().toLocaleTimeString();
+  const timezone = weather?.timezone;
+  const localTimeInMilliseconds = Date.now() + (timezone * 1000);
+  const currentTime = new Date(localTimeInMilliseconds).toLocaleTimeString();
 
   const temperature = weather?.weather?.temperature;
   const feelsLike = weather?.weather?.feels_like;
