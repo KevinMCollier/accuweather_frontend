@@ -6,7 +6,15 @@ function WeatherDisplay({ weather }) {
   console.log(weather);
   if (!weather) return null;
 
-  const currentTime = new Date().toLocaleTimeString();
+  const timezone = weather?.timezone;
+  const localTimeInMilliseconds = Date.now() + (timezone * 1000);
+  console.log("Current time (UTC):", new Date(Date.now()).toUTCString());
+  console.log("Timezone offset (seconds):", timezone);
+  console.log("Adjusted time (Local):", new Date(localTimeInMilliseconds).toLocaleString());
+  console.log("Adjusted time (UTC):", new Date(localTimeInMilliseconds).toUTCString());
+
+  const currentTimeUTC = new Date(localTimeInMilliseconds).toUTCString();
+  const currentTime = currentTimeUTC.split(' ')[4]; // Extracting time from the UTC string
 
   const temperature = weather?.weather?.temperature;
   const feelsLike = weather?.weather?.feels_like;
