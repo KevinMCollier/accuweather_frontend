@@ -1,12 +1,16 @@
 import './App.css';
 import './assets/styles/global.css';
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import WeatherDashboard from './components/WeatherDashboard';
 import ForecastContainer from './components/ForecastContainer';
 
 function App() {
   const [selectedLocation, setSelectedLocation] = useState(null);
+
+  const handleSearchResult = useCallback((data) => {
+    setSelectedLocation(data.city_name);
+  }, []);
 
   return (
     <div className="App">
@@ -19,7 +23,7 @@ function App() {
                 <>
                   <WeatherDashboard
                     selectedLocation={selectedLocation}
-                    setSelectedLocation={setSelectedLocation}
+                    handleSearchResult={handleSearchResult}
                   />
                   {selectedLocation && (
                     <div className="forecast-link">
@@ -31,7 +35,7 @@ function App() {
             />
             <Route
               path="/forecast"
-              element={<ForecastContainer location={selectedLocation} setSelectedLocation={setSelectedLocation} />}
+              element={<ForecastContainer location={selectedLocation} handleSearchResult={handleSearchResult} />}
             />
           </Routes>
         </main>
