@@ -12,20 +12,28 @@ function App() {
     <div className="App">
       <Router>
         <main>
-          <WeatherDashboard
-            selectedLocation={selectedLocation}
-            setSelectedLocation={setSelectedLocation}
-          />
-
-          {selectedLocation && (
-            <div className="forecast-link">
-              <Link to="/forecast">View 48-hour Forecast</Link>
-            </div>
-          )}
-
-        <Routes>
-          <Route path="/forecast" element={<ForecastContainer location={selectedLocation} />} />
-        </Routes>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <WeatherDashboard
+                    selectedLocation={selectedLocation}
+                    setSelectedLocation={setSelectedLocation}
+                  />
+                  {selectedLocation && (
+                    <div className="forecast-link">
+                      <Link to="/forecast">View 48-hour Forecast</Link>
+                    </div>
+                  )}
+                </>
+              }
+            />
+            <Route
+              path="/forecast"
+              element={<ForecastContainer location={selectedLocation} setSelectedLocation={setSelectedLocation} />}
+            />
+          </Routes>
         </main>
       </Router>
     </div>
