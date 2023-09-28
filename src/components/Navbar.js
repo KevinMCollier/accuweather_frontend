@@ -21,7 +21,7 @@ function Navbar({ weather, loading, onSearch, searchedCityName }) {
     <div className="navbar">
       <div className="navbar-content">
         <div className="navbar-location-container">
-          {weather ? weather.name : 'Weather App'}
+          {weather ? weather.name : 'Weather'}
         </div>
 
         {weather && (

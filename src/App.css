@@ -1,3 +1,26 @@
 .App {
   text-align: center;
 }
+
+.link {
+  display: inline-block;
+  margin: 5px;
+  margin-bottom: 15px;
+  padding: 10px 20px;
+  background-color: #f0f0f0; /* Light grey background */
+  color: #333333; /* Dark grey text */
+  text-decoration: none;
+  border-radius: 15px; /* Increased border radius for a 'pill' effect */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for 'lifting' effect */
+  transition: all 0.3s ease-in-out; /* Smooth transition for hover effects */
+}
+
+.link:hover {
+  background-color: #e0e0e0; /* Slightly darker grey for hover effect */
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Increased shadow size for hover effect */
+}
+
+.link:active {
+  box-shadow: none; /* Removes shadow when link is active/clicked, creating a 'pressed' effect */
+  transform: translateY(2px); /* Slightly shifts link downwards when active/clicked */
+}

@@ -9,7 +9,7 @@ function Forecast({ forecastData, loading }) {
 
   return (
     <div>
-      <Link to="/" className="home-link">Back</Link> {/* Add this line */}
+      <Link to="/" className="link">Current</Link> {/* Add this line */}
       <div className="forecast-card-container">
         {forecastData.map((data, index) => {
           const temperature = data?.main?.temp;

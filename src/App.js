@@ -1,7 +1,7 @@
 import './App.css';
 import './assets/styles/global.css';
 import React, { useState, useCallback } from 'react';
-import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WeatherDashboard from './components/WeatherDashboard';
 import ForecastContainer from './components/ForecastContainer';
 
@@ -25,11 +25,6 @@ function App() {
                     selectedLocation={selectedLocation}
                     handleSearchResult={handleSearchResult}
                   />
-                  {selectedLocation && (
-                    <div className="forecast-link">
-                      <Link to="/forecast">View 48-hour Forecast</Link>
-                    </div>
-                  )}
                 </>
               }
             />
