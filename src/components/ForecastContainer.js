@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Forecast from './Forecast';
+import Navbar from './Navbar';
+import { useNavigate } from 'react-router-dom';
 
-function ForecastContainer({ location }) {
+function ForecastContainer({ location, handleSearchResult }) {
   const [forecastData, setForecastData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!location) return;
@@ -24,12 +27,22 @@ function ForecastContainer({ location }) {
         setError(error);
         setLoading(false);
       });
-  }, [location]);  // <- Here, fetch the forecast every time the location changes.
+  }, [location]);
+
+  const handleNavbarSearch = (data) => {
+    handleSearchResult(data);
+    navigate('/');
+  };
 
   if (loading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  return <Forecast forecastData={forecastData} />;
+  return (
+    <div>
+      <Navbar onSearch={handleNavbarSearch} />
+      {loading ? <div>Loading...</div> : <Forecast forecastData={forecastData} />}
+    </div>
+  )
 }
 
 export default ForecastContainer;

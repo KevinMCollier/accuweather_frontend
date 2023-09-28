@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import WeatherData from './WeatherData';
 import Navbar from './Navbar';  // Make sure to import Navbar
 
-function WeatherDashboard({ selectedLocation, setSelectedLocation }) {
+function WeatherDashboard({ selectedLocation, handleSearchResult }) {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const DEFAULT_LOCATION = 'Tokyo';
-
-  const handleSearchResult = (data) => {
-    setWeather(data);
-    setLoading(false);
-    setSelectedLocation(data.city_name);
-  }
 
   useEffect(() => {
     const fetchLocation = selectedLocation || DEFAULT_LOCATION;
@@ -26,16 +21,25 @@ function WeatherDashboard({ selectedLocation, setSelectedLocation }) {
     .then(data => {
       setWeather(data);
       setLoading(false);
+      if (!selectedLocation) {
+        handleSearchResult(data);
+      }
     })
     .catch(error => {
       console.error("There was an error fetching the weather data", error);
       setLoading(false);
     });
-}, [selectedLocation]); // useEffect will re-run if selectedLocation changes
+}, [selectedLocation, handleSearchResult]); // useEffect will re-run if selectedLocation changes
 
   return (
     <div>
       <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} searchedCityName={selectedLocation} />
+      {selectedLocation && (
+        <div>
+          <Link to="/forecast" className="link">48-Hour</Link>
+          <Link to="/forecast" className="link">5-Day</Link>
+        </div>
+      )}
       {weather && <WeatherData weather={weather} loading={loading} />}
     </div>
   );
