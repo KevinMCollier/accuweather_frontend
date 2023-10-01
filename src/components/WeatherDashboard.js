@@ -36,7 +36,6 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
       <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} searchedCityName={selectedLocation} />
       {selectedLocation && (
         <div>
-          <Link to="/forecast" className="link">48-Hour</Link>
           <Link to="/forecast" className="link">5-Day</Link>
         </div>
       )}
