@@ -12,7 +12,7 @@ function ForecastContainer({ location, handleSearchResult }) {
   useEffect(() => {
     if (!location) return;
 
-    fetch(`http://localhost:3000/api/v1/locations/forecast?query=${location}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/forecast?query=${location}`)
       .then(response => {
         if (!response.ok) {
           throw new Error('Network response was not ok')

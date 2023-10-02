@@ -11,7 +11,7 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
   useEffect(() => {
     const fetchLocation = selectedLocation || DEFAULT_LOCATION;
 
-    fetch(`http://localhost:3000/api/v1/locations/search?query=${fetchLocation}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/search?query=${fetchLocation}`)
     .then(response => {
       if (!response.ok) {
         throw new Error('Network response was not ok');
