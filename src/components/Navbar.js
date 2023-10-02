@@ -6,7 +6,7 @@ function Navbar({ weather, loading, onSearch, searchedCityName }) {
   const [searchResults] = useState(null);
 
   const handleSearch = () => {
-    fetch(`http://localhost:3000/api/v1/locations/search?query=${searchQuery}`)
+    fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/search?query=${searchQuery}`)
     .then(response => response.json())
     .then(data => {
       // setSearchResults(data);
