@@ -30,7 +30,14 @@ function App() {
             />
             <Route
               path="/forecast"
-              element={<ForecastContainer location={selectedLocation} handleSearchResult={handleSearchResult} />}
+              element={
+                <>
+                  <ForecastContainer
+                    location={selectedLocation}
+                    handleSearchResult={handleSearchResult}
+                  />
+                </>
+              }
             />
           </Routes>
         </main>
