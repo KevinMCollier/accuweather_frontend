@@ -20,9 +20,6 @@ function WeatherDisplay({ weather }) {
   const feelsLike = weather?.weather?.feels_like;
   const weatherIcon = weather?.weather?.icon;
   const weatherDescription = weather?.weather?.description;
-  // const minTemperature = weather?.weather?.temp_min;
-  // const maxTemperature = weather?.weather?.temp_max;
-  // const humidity = weather?.weather?.humidity;
 
 
   return (
