@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+// import { Link } from 'react-router-dom';
 import WeatherData from './WeatherData';
 import Navbar from './Navbar';  // Make sure to import Navbar
 
@@ -34,12 +34,12 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
   return (
     <div>
       <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} searchedCityName={selectedLocation} />
-      {selectedLocation && (
+      {/* {selectedLocation && (
         <div>
           <Link to="/forecast" className="link">5-Day</Link>
         </div>
-      )}
-      {weather && <WeatherData weather={weather} loading={loading} />}
+      )} */}
+      {weather && <WeatherData weather={weather} loading={loading} selectedLocation={selectedLocation} />}
     </div>
   );
 }
