@@ -1,8 +1,10 @@
 import React from 'react';
 import './WeatherDisplay.css';
+import { Link } from 'react-router-dom';
 
 
-function WeatherDisplay({ weather }) {
+
+function WeatherDisplay({ weather, selectedLocation }) {
   console.log(weather);
   if (!weather) return null;
 
@@ -46,10 +48,11 @@ function WeatherDisplay({ weather }) {
         <div className="weather-description">
           <p>{weatherDescription}</p>
         </div>
-        <div className="more-details">
-          {/* <a href="#">More Details</a> */}
-          <p>More Details</p>
-        </div>
+        {selectedLocation && (
+          <div>
+            <Link to="/forecast" className="link">Hourly Weather</Link>
+          </div>
+        )}
       </div>
     </div>
   );
