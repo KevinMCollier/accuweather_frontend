@@ -18,6 +18,11 @@ function WeatherDisplay({ weather, selectedLocation }) {
   const currentTimeUTC = new Date(localTimeInMilliseconds).toUTCString();
   const currentTime = currentTimeUTC.split(' ')[4]; // Extracting time from the UTC string
 
+  const sunrise = new Date(weather.sunrise * 1000);
+  const sunset = new Date(weather.sunset * 1000);
+
+  const isDayTime = currentTime >= sunrise && currentTime <= sunset;
+
   const temperature = weather?.weather?.temperature;
   const feelsLike = weather?.weather?.feels_like;
   const weatherIcon = weather?.weather?.icon;
@@ -25,7 +30,7 @@ function WeatherDisplay({ weather, selectedLocation }) {
 
 
   return (
-    <div className="weather-card">
+    <div className={`weather-card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
       <div className="header">
         <h4>CURRENT WEATHER</h4>
         <p className="weather-time">{currentTime}</p>
