@@ -10,13 +10,12 @@ function WeatherDisplay({ weather, selectedLocation }) {
 
   const timezone = weather?.timezone;
   const localTimeInMilliseconds = Date.now() + (timezone * 1000);
-  console.log("Current time (UTC):", new Date(Date.now()).toUTCString());
-  console.log("Timezone offset (seconds):", timezone);
-  console.log("Adjusted time (Local):", new Date(localTimeInMilliseconds).toLocaleString());
-  console.log("Adjusted time (UTC):", new Date(localTimeInMilliseconds).toUTCString());
+  const localTimeString = new Date(localTimeInMilliseconds).toLocaleString('en-US', {timeZone: 'UTC'});
+  const currentTime = new Date(localTimeString);
+  const sunrise = new Date(weather.sunrise * 1000);
+  const sunset = new Date(weather.sunset * 1000);
 
-  const currentTimeUTC = new Date(localTimeInMilliseconds).toUTCString();
-  const currentTime = currentTimeUTC.split(' ')[4]; // Extracting time from the UTC string
+  const isDayTime = currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime();
 
   const temperature = weather?.weather?.temperature;
   const feelsLike = weather?.weather?.feels_like;
@@ -25,10 +24,10 @@ function WeatherDisplay({ weather, selectedLocation }) {
 
 
   return (
-    <div className="weather-card">
+    <div className={`weather-card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
       <div className="header">
         <h4>CURRENT WEATHER</h4>
-        <p className="weather-time">{currentTime}</p>
+        <p className="weather-time">{localTimeString}</p>
       </div>
 
       <div className="center-content">

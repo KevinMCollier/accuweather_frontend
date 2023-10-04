@@ -24,3 +24,13 @@
   box-shadow: none; /* Removes shadow when link is active/clicked, creating a 'pressed' effect */
   transform: translateY(2px); /* Slightly shifts link downwards when active/clicked */
 }
+
+.day-theme {
+  background-color: #ffeb3b; /* Example yellow for day */
+  /* Add other styling for day theme */
+}
+
+.night-theme {
+  background-color: #3f51b5; /* Example blue for night */
+  /* Add other styling for night theme */
+}
