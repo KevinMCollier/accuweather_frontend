@@ -4,18 +4,14 @@ import { Link } from 'react-router-dom';
 
 
 
-function WeatherDisplay({ weather, selectedLocation }) {
-  console.log(weather);
+function WeatherDisplay({ weather, selectedLocation, isDayTime }) {
+  // console.log('WeatherDisplay selectedLocation:', selectedLocation);
+  // console.log(weather);
   if (!weather) return null;
 
   const timezone = weather?.timezone;
   const localTimeInMilliseconds = Date.now() + (timezone * 1000);
   const localTimeString = new Date(localTimeInMilliseconds).toLocaleString('en-US', {timeZone: 'UTC'});
-  const currentTime = new Date(localTimeString);
-  const sunrise = new Date(weather.sunrise * 1000);
-  const sunset = new Date(weather.sunset * 1000);
-
-  const isDayTime = currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime();
 
   const temperature = weather?.weather?.temperature;
   const feelsLike = weather?.weather?.feels_like;

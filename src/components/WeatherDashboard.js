@@ -9,7 +9,7 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
   const DEFAULT_LOCATION = 'Tokyo';
 
   useEffect(() => {
-    const fetchLocation = selectedLocation || DEFAULT_LOCATION;
+    const fetchLocation = selectedLocation ? selectedLocation.city_name : DEFAULT_LOCATION;
 
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/search?query=${fetchLocation}`)
     .then(response => {
@@ -30,15 +30,11 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
       setLoading(false);
     });
 }, [selectedLocation, handleSearchResult]); // useEffect will re-run if selectedLocation changes
+  // console.log(selectedLocation);
 
   return (
     <div>
       <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} searchedCityName={selectedLocation} />
-      {/* {selectedLocation && (
-        <div>
-          <Link to="/forecast" className="link">5-Day</Link>
-        </div>
-      )} */}
       {weather && <WeatherData weather={weather} loading={loading} selectedLocation={selectedLocation} />}
     </div>
   );
