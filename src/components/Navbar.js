@@ -26,7 +26,7 @@ function Navbar({ weather, loading, onSearch, searchedCityName }) {
 
         {weather && (
           <div className="navbar-current-weather">
-            <h3 className="navbar-location-name">{searchedCityName}</h3>
+            <h3 className="navbar-location-name">{searchedCityName.city_name}</h3>
             <div className="navbar-temperature">{weather.weather.temperature}°</div>
             {weather.weather.icon &&
               <img src={`http://openweathermap.org/img/w/${weather.weather.icon}.png`} alt="weather icon" className="weather-icon" />
