@@ -6,20 +6,18 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 35px;
+  height: auto;
 }
 
 .navbar-content {
-  width: 80%; /* Adjust based on your design preferences */
+  width: 100%; /* Adjust based on your design preferences */
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 10%;
 }
 
 .navbar-location-container {
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
   padding-right: 40px;
 }
 
@@ -27,12 +25,15 @@
   color: white;
   font-size: 18px;
   font-weight: bold;
-  padding-right: 20px;
+  padding-right: 40px;
+  width: auto;
+  white-space: nowrap;
 }
 
 .navbar-current-weather {
   display: flex;
   align-items: center;
+  margin-right: 60px;
 }
 
 .navbar-temperature {
@@ -42,24 +43,26 @@
 }
 
 .navbar-weather-icon {
-  width: 30px;
-  height: 30px;
+  width: 20px;
+  height: 20px;
 }
 
 /* Existing styles */
 
 /* Additional styles for the search functionality */
 .search-container {
-  padding-left: 140px;
   display: flex;
   align-items: center;
   gap: 10px; /* Spacing between the search bar and the button */
+  width: 100%;
 }
 
 input[type="text"] {
   padding: 5px 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
+  width: 60%; /* Set a relative width */
+  max-width: 600px; /* Prevent it from becoming too wide on large screens */
 }
 
 button {
@@ -88,4 +91,28 @@ button:hover {
   max-height: 300px;
   overflow-y: auto;
   z-index: 2; /* Make sure it appears on top of other content */
+}
+
+/* Add the following at the bottom of your Navbar.css */
+@media (max-width: 768px) { /* You can adjust the breakpoint as necessary */
+  .navbar-content {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .navbar-location-container,
+  .navbar-location-name,
+  .navbar-current-weather {
+    padding-right: 20px;
+  }
+
+  .search-container {
+    padding-left: 0;
+    padding-bottom: 5px;
+    width: 90%;
+  }
+
+  input[type="text"] {
+    width: 80%; /* Adjust as necessary */
+  }
 }
