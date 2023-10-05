@@ -9,9 +9,9 @@ body {
 }
 
 body.day-theme {
-  background-color: #ffeb3b; /* or whatever color you want for day */
+  background-color: #F0F3F4; /* or whatever color you want for day */
 }
 
 body.night-theme {
-  background-color: #3f51b5; /* or whatever color you want for night */
+  background-color: #2C3E50; /* or whatever color you want for night */
 }
