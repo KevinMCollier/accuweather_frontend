@@ -19,7 +19,9 @@ function App() {
       const sunrise = new Date(selectedLocation.sunrise * 1000); // adjust this
       const sunset = new Date(selectedLocation.sunset * 1000); // adjust this
 
-      setIsDayTime(currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime());
+      // setIsDayTime(currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime());
+      const newIsDayTime = currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime();
+      setIsDayTime(newIsDayTime);
 
       console.log(selectedLocation.city_name)
       console.log('Calculated Current Time:', currentTime);
@@ -29,7 +31,8 @@ function App() {
 
       document.body.className = isDayTime ? 'day-theme' : 'night-theme';
     }
-  }, [selectedLocation, isDayTime]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [selectedLocation]);
 
   const handleSearchResult = useCallback((data) => {
     setSelectedLocation(data);
