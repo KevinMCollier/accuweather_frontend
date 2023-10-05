@@ -4,6 +4,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import WeatherDashboard from './components/WeatherDashboard';
 import ForecastContainer from './components/ForecastContainer';
+import moment from 'moment-timezone';
 
 
 function App() {
@@ -12,24 +13,21 @@ function App() {
 
   useEffect(() => {
     if (selectedLocation) {
-      const timezone = selectedLocation.timezone; // adjust this
-      const localTimeInMilliseconds = Date.now() + (timezone * 1000);
-      const localTimeString = new Date(localTimeInMilliseconds).toLocaleString('en-US', {timeZone: 'UTC'});
-      const currentTime = new Date(localTimeString);
-      const sunrise = new Date(selectedLocation.sunrise * 1000); // adjust this
-      const sunset = new Date(selectedLocation.sunset * 1000); // adjust this
+      const timezone = selectedLocation.timezone;
+      const localTime = moment().utc().add(timezone, 'seconds');
+      const sunrise = moment.unix(selectedLocation.sunrise).utc().add(timezone, 'seconds');
+      const sunset = moment.unix(selectedLocation.sunset).utc().add(timezone, 'seconds');
 
-      // setIsDayTime(currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime());
-      const newIsDayTime = currentTime.getTime() >= sunrise.getTime() && currentTime.getTime() <= sunset.getTime();
+      const newIsDayTime = localTime.isBetween(sunrise, sunset);
       setIsDayTime(newIsDayTime);
 
       console.log(selectedLocation.city_name)
-      console.log('Calculated Current Time:', currentTime);
+      console.log('Calculated Current Time:', localTime.format());
       console.log('Sunrise Time:', sunrise);
       console.log('Sunset Time:', sunset);
-      console.log('Is Daytime:', isDayTime);  // log the result of your day/night comparison
+      console.log('Is Daytime:', newIsDayTime);  // log the result of your day/night comparison
 
-      document.body.className = isDayTime ? 'day-theme' : 'night-theme';
+      document.body.className = newIsDayTime ? 'day-theme' : 'night-theme';
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [selectedLocation]);
