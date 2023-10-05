@@ -19,6 +19,9 @@
 
 .navbar-location-container {
   padding-right: 40px;
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
 }
 
 .navbar-location-name {
