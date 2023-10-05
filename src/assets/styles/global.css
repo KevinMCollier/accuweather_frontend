@@ -9,9 +9,11 @@ body {
 }
 
 body.day-theme {
-  background-color: #ffeb3b; /* or whatever color you want for day */
+  background-color: #F0F3F4;
+  /* background: linear-gradient(45deg, #F0F3F4, #E9EBEE); */
 }
 
 body.night-theme {
-  background-color: #3f51b5; /* or whatever color you want for night */
+  background-color: #2C3E50;
+  /* background: linear-gradient(45deg, #2C3E50, #283746); */
 }
