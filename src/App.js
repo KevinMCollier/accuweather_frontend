@@ -12,6 +12,7 @@ function App() {
   const [isDayTime, setIsDayTime] = useState(null);
 
   useEffect(() => {
+    console.log('App useEffect: Running effect due to selectedLocation change');
     if (selectedLocation) {
       const timezone = selectedLocation.timezone;
       const localTime = moment().utc().add(timezone, 'seconds');
@@ -21,11 +22,12 @@ function App() {
       const newIsDayTime = localTime.isBetween(sunrise, sunset);
       setIsDayTime(newIsDayTime);
 
-      console.log(selectedLocation.city_name)
-      console.log('Calculated Current Time:', localTime.format());
-      console.log('Sunrise Time:', sunrise);
-      console.log('Sunset Time:', sunset);
-      console.log('Is Daytime:', newIsDayTime);  // log the result of your day/night comparison
+      // console.log(selectedLocation.city_name)
+      // console.log('Calculated Current Time:', localTime.format());
+      // console.log('Sunrise Time:', sunrise);
+      // console.log('Sunset Time:', sunset);
+      // console.log('Is Daytime:', newIsDayTime);  // log the result of your day/night comparison
+      console.log('App useEffect: selectedLocation', selectedLocation);
 
       document.body.className = newIsDayTime ? 'day-theme' : 'night-theme';
     }

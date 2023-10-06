@@ -7,10 +7,12 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
   const DEFAULT_LOCATION = 'Tokyo';
+  console.log('Rendering WeatherDashboard with selectedLocation:', selectedLocation);
 
   useEffect(() => {
     const fetchLocation = selectedLocation ? selectedLocation.city_name : DEFAULT_LOCATION;
 
+    console.log('About to fetch weather for:', fetchLocation);
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/search?query=${fetchLocation}`)
     .then(response => {
       if (!response.ok) {
