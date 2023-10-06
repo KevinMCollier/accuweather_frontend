@@ -1,3 +1,12 @@
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+}
+
 ul {
   list-style-type: none;
   padding-left: 0;
@@ -14,6 +23,14 @@ body.day-theme {
 }
 
 body.night-theme {
-  background-color: #2C3E50;
-  /* background: linear-gradient(45deg, #2C3E50, #283746); */
+  background-color: rgb(2,0,36);
+  background: linear-gradient(180deg,
+  rgba(1,0,20,1) 20%,
+  rgba(10,35,66,1) 70%,
+  rgb(40,62,81,1) 100%);
+  background-repeat: no-repeat;
+
+
+  /* rgba(40,62,81,1)
+  rgba(10,35,66,1) */
 }
