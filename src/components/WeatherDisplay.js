@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 
 
-function WeatherDisplay({ weather, selectedLocation, isDayTime }) {
+function WeatherDisplay({ weather, selectedLocation, isDayTime, haiku }) {
   // console.log('WeatherDisplay selectedLocation:', selectedLocation);
   // console.log(weather);
   if (!weather) return null;
@@ -20,36 +20,47 @@ function WeatherDisplay({ weather, selectedLocation, isDayTime }) {
 
 
   return (
-    <div className={`weather-card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
-      <div className="header">
-        <h4>CURRENT WEATHER</h4>
-        <p className="weather-time">{localTimeString}</p>
-      </div>
-
-      <div className="center-content">
-        <div className="icon-container">
-          {weatherIcon && <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`} alt={weatherDescription} />}
+    <div className="cards-container">
+      <div className={`card weather-card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
+        <div className="header">
+          <h4>CURRENT WEATHER</h4>
+          <p className="weather-time">{localTimeString}</p>
         </div>
 
-        <div className="temperature">
-          <h4>{temperature}°</h4>
-          <div className="feels-like">
-            <p>Feels like {feelsLike}°</p>
+        <div className="center-content">
+          <div className="icon-container">
+            {weatherIcon && <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`} alt={weatherDescription} />}
+          </div>
+
+          <div className="temperature">
+            <h4>{temperature}°</h4>
+            <div className="feels-like">
+              <p>Feels like {feelsLike}°</p>
+            </div>
           </div>
         </div>
-      </div>
 
-      <div className="bottom-content">
-        <div className="weather-description">
-          <p>{weatherDescription}</p>
+        <div className="bottom-content">
+          <div className="weather-description">
+            <p>{weatherDescription}</p>
+          </div>
+          {selectedLocation && (
+            <div>
+              <Link to="/forecast" className="link">Hourly Weather</Link>
+            </div>
+          )}
         </div>
-        {selectedLocation && (
-          <div>
-            <Link to="/forecast" className="link">Hourly Weather</Link>
+    </div>
+        {haiku && (
+          <div className={`card haiku card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
+            <div className="haiku-container">
+              <p>{haiku.line_1}</p>
+              <p>{haiku.line_2}</p>
+              <p>{haiku.line_3}</p>
+            </div>
           </div>
         )}
       </div>
-    </div>
   );
 }
 
