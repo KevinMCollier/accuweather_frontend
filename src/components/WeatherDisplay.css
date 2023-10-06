@@ -1,30 +1,20 @@
-.weather-card {
-  background-color: rgba(255, 255, 255, 0.9); /* Slightly translucent white */
-  border: 1px solid rgba(0,0,0,0.1); /* Add subtle border */
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px; /* adjust as needed */
-  margin: 0 auto; /* centers the card */
-  display: flex;
-  flex-direction: column; /* sets main axis to vertical */
-  align-items: center;
-  justify-content: space-between;
+.cards-container {
+  max-width: 600px;
+  margin: 0 auto;
 }
 
-body.night-theme .weather-card {
-  background-color: rgba(38, 54, 70, 0.9); /* Dark background for night theme */
-  color: #EAEDED; /* Light text for night theme */
-  border: 1px solid rgba(0,0,0,0.1); /* Add subtle border */
+.card {
+  background-color: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0,0,0,0.1);
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 600px; /* adjust as needed */
-  margin: 0 auto; /* centers the card */
-  display: flex;
-  flex-direction: column; /* sets main axis to vertical */
-  align-items: center;
-  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+body.night-theme .card {
+  background-color: rgba(38, 54, 70, 0.9);
+  color: #EAEDED;
 }
 
 
@@ -89,5 +79,25 @@ body.night-theme .weather-card {
 }
 
 .weather-description, .more-details {
+  font-size: 1em;
+}
+
+
+/* WeatherDisplay.css */
+.haiku-container {
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.haiku-container h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 1.2em;
+}
+
+.haiku-container p {
+  margin: 0;
+  padding: 0;
   font-size: 1em;
 }

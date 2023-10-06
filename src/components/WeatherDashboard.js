@@ -65,7 +65,7 @@ useEffect(() => {
   return (
     <div>
       <Navbar weather={weather} loading={loading} onSearch={handleSearchResult} searchedCityName={selectedLocation} />
-      {weather && <WeatherData weather={weather} loading={loading} selectedLocation={selectedLocation} />}
+      {weather && <WeatherData weather={weather} loading={loading} selectedLocation={selectedLocation} haiku={weather.haiku} />}
     </div>
   );
 }
