@@ -9,30 +9,58 @@ function WeatherDashboard({ selectedLocation, handleSearchResult }) {
   const DEFAULT_LOCATION = 'Tokyo';
   console.log('Rendering WeatherDashboard with selectedLocation:', selectedLocation);
 
-  useEffect(() => {
-    const fetchLocation = selectedLocation ? selectedLocation.city_name : DEFAULT_LOCATION;
+//   useEffect(() => {
+//     const fetchLocation = selectedLocation ? selectedLocation.city_name : DEFAULT_LOCATION;
 
+//     console.log('About to fetch weather for:', fetchLocation);
+//     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/search?query=${fetchLocation}`)
+//     .then(response => {
+//       if (!response.ok) {
+//         throw new Error('Network response was not ok');
+//       }
+//       return response.json();
+//     })
+//     .then(data => {
+//       setWeather(data);
+//       setLoading(false);
+//       if (!selectedLocation) {
+//         handleSearchResult(data);
+//       }
+//     })
+//     .catch(error => {
+//       console.error("There was an error fetching the weather data", error);
+//       setLoading(false);
+//     });
+// }, [selectedLocation, handleSearchResult]); // useEffect will re-run if selectedLocation changes
+//   // console.log(selectedLocation);
+
+useEffect(() => {
+  const fetchLocation = selectedLocation ? selectedLocation.city_name : DEFAULT_LOCATION;
+
+  // You might want to fetch only if selectedLocation is not set
+  if (!selectedLocation) {
     console.log('About to fetch weather for:', fetchLocation);
     fetch(`${process.env.REACT_APP_BACKEND_URL}/api/v1/locations/search?query=${fetchLocation}`)
-    .then(response => {
-      if (!response.ok) {
-        throw new Error('Network response was not ok');
-      }
-      return response.json();
-    })
-    .then(data => {
-      setWeather(data);
-      setLoading(false);
-      if (!selectedLocation) {
-        handleSearchResult(data);
-      }
-    })
-    .catch(error => {
-      console.error("There was an error fetching the weather data", error);
-      setLoading(false);
-    });
-}, [selectedLocation, handleSearchResult]); // useEffect will re-run if selectedLocation changes
-  // console.log(selectedLocation);
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setWeather(data);
+        setLoading(false);
+        handleSearchResult(data); // Update parent state only when fetching data
+      })
+      .catch(error => {
+        console.error("There was an error fetching the weather data", error);
+        setLoading(false);
+      });
+  } else {
+    setWeather(selectedLocation); // If selectedLocation is set, use it directly without fetching
+    setLoading(false);
+  }
+}, [selectedLocation, handleSearchResult]); // Adjust dependencies based on your logic
 
   return (
     <div>
