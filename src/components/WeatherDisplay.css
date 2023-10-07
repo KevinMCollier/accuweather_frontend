@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+
 .cards-container {
   max-width: 600px;
   margin: 0 auto;
@@ -10,11 +13,24 @@
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
 }
+
+.card-hover-effect:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+}
+
 
 body.night-theme .card {
   background-color: rgba(28, 39, 51, 0.9);
   color: #EAEDED;
+}
+
+body.day-theme .card {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid rgba(221,221,221,0.5);
 }
 
 
@@ -27,7 +43,7 @@ body.night-theme .card {
 
 .header h4 {
   line-height: 0.2; /* Adjust as needed. Default is usually around 1.3 to 1.5 */
-  font-weight: 100;
+  font-style: bold;
 }
 
 .weather-time {
@@ -84,20 +100,42 @@ body.night-theme .card {
 
 
 /* WeatherDisplay.css */
-.haiku-container {
-  padding: 10px;
-  border-radius: 8px;
+.haiku-container-jp {
   text-align: center;
+  font-size: 24px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 4px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  height: 130px;
+  overflow: hidden;
 }
 
-.haiku-container h4 {
-  margin: 0;
-  padding: 0;
-  font-size: 1.2em;
+.haiku-container-en {
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  height: 130px;
+  overflow: hidden;
 }
 
-.haiku-container p {
+body.day-theme .haiku-container-jp p {
   margin: 0;
   padding: 0;
-  font-size: 1em;
+  /* color: teal; */
+}
+
+body.night-theme .haiku-container-jp p {
+  margin: 0;
+  padding: 0;
+  /* color: darkgoldenrod; */
+}
+
+.language-setting {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
 }
