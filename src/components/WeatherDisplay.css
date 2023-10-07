@@ -100,16 +100,35 @@ body.day-theme .card {
   letter-spacing: 4px;
   line-height: 1.7;
   margin-bottom: 8px;
+  height: 130px;
+  overflow: hidden;
+}
+
+.haiku-container-en {
+  text-align: center;
+  font-size: 18px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 1px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+  height: 130px;
+  overflow: hidden;
 }
 
 body.day-theme .haiku-container-jp p {
   margin: 0;
   padding: 0;
-  color: teal;
+  /* color: teal; */
 }
 
 body.night-theme .haiku-container-jp p {
   margin: 0;
   padding: 0;
-  color: darkgoldenrod;
+  /* color: darkgoldenrod; */
+}
+
+.language-setting {
+  text-align: center;
+  font-size: 12px;
+  color: gray;
 }

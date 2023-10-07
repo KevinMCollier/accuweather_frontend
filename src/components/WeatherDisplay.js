@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './WeatherDisplay.css';
 import { Link } from 'react-router-dom';
 
 
 
 function WeatherDisplay({ weather, selectedLocation, isDayTime, haiku }) {
-  // console.log('WeatherDisplay selectedLocation:', selectedLocation);
-  // console.log(weather);
+  const [showEnglish, setShowEnglish] = useState(false);
+
   if (!weather) return null;
 
   const timezone = weather?.timezone;
@@ -52,17 +52,24 @@ function WeatherDisplay({ weather, selectedLocation, isDayTime, haiku }) {
         </div>
     </div>
         {haiku && (
-          <div className={`card haiku card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
+          <div className={`card haiku card ${isDayTime ? 'day-theme' : 'night-theme'}`} onClick={() => setShowEnglish(!showEnglish)}>
+            {showEnglish ? (
+              <div className="haiku-container-en">
+                <p>{haiku.line_1_en}</p>
+                <p>{haiku.line_2_en}</p>
+                <p>{haiku.line_3_en}</p>
+              </div>
+            ) : (
             <div className="haiku-container-jp">
               <p>{haiku.line_1_jp}</p>
               <p>{haiku.line_2_jp}</p>
               <p>{haiku.line_3_jp}</p>
             </div>
-            {/* <div className="haiku-container-en">
-              <p>{haiku.line_1_en}</p>
-              <p>{haiku.line_2_en}</p>
-              <p>{haiku.line_3_en}</p>
-            </div> */}
+            )}
+            <p className="language-setting">
+              <span style={{fontWeight: showEnglish ? 'normal' : 'bold'}}>Jp</span> |
+              <span style={{fontWeight: showEnglish ? 'bold' : 'normal'}}> En</span>
+            </p>
           </div>
         )}
       </div>
