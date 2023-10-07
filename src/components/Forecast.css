@@ -1,7 +1,14 @@
 .forecast-card-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.forecast-card {
+  max-width: 200px;
+  margin: 10px;
 }
 
 body.night-theme .forecast-card {

@@ -12,22 +12,20 @@ function Forecast({ forecastData, loading }) {
       <Link to="/" className="link">Return to Current Weather</Link> {/* Add this line */}
       <div className="forecast-card-container">
         {forecastData.map((data, index) => {
-          const temperature = data?.main?.temp;
-          const feelsLike = data?.main?.feels_like;
-          const weatherIcon = data?.weather[0]?.icon;
-          const weatherDescription = data?.weather[0]?.description;
-          const dateTime = data?.dt_txt;
+          const { date, temp_max, temp_min, weather_description } = data;
+          // const weatherIcon = data?.weather[0]?.icon;
+
 
           return (
             <div key={index} className="forecast-card">
-              <div className="forecast-icon">
+              {/* <div className="forecast-icon">
                 {weatherIcon && <img src={`http://openweathermap.org/img/w/${weatherIcon}.png`} alt={weatherDescription} />}
-              </div>
+              </div> */}
               <div className="forecast-details">
-                <div className="forecast-temperature">Temperature: {temperature}°</div>
-                <div className="forecast-feels-like">Feels like {feelsLike}°</div>
-                <div className="forecast-description">{weatherDescription}</div>
-                <div className="forecast-date-time">{dateTime}</div>
+                <div className="forecast-date">{date}</div>
+                <div className="forecast-temp-max">Max Temp: {temp_max}°</div>
+                <div className="forecast-temp-min">Min Temp: {temp_min}°</div>
+                <div className="forecast-description">{weather_description}</div>
               </div>
             </div>
           );
