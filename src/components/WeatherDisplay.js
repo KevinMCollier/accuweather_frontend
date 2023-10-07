@@ -52,7 +52,7 @@ function WeatherDisplay({ weather, selectedLocation, isDayTime, haiku }) {
         </div>
     </div>
         {haiku && (
-          <div className={`card haiku card ${isDayTime ? 'day-theme' : 'night-theme'}`} onClick={() => setShowEnglish(!showEnglish)}>
+          <div className={`card haiku card-hover-effect ${isDayTime ? 'day-theme' : 'night-theme'}`} onClick={() => setShowEnglish(!showEnglish)}>
             {showEnglish ? (
               <div className="haiku-container-en">
                 <p>{haiku.line_1_en}</p>
