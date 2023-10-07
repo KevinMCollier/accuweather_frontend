@@ -34,11 +34,13 @@ function ForecastContainer({ location, handleSearchResult }) {
 
       const mostFrequentWeather = Object.keys(weatherDescription).reduce((a, b) => weatherDescription[a] > weatherDescription[b] ? a : b);
 
+      const iconForMostFrequentWeather = aggregatedData[date].weather.find(w => w.description === mostFrequentWeather).icon;
       return {
         date,
         temp_max: aggregatedData[date].temp_max,
         temp_min: aggregatedData[date].temp_min,
-        weather_description: mostFrequentWeather
+        weather_description: mostFrequentWeather,
+        icon: iconForMostFrequentWeather
       };
     });
 
