@@ -2,8 +2,14 @@
 
 
 .cards-container {
-  max-width: 600px;
+  max-width: 50%;
   margin: 0 auto;
+}
+
+@media screen and (max-width: 768px) { /* You may need to adjust this breakpoint */
+  .cards-container {
+    max-width: 80%;
+  }
 }
 
 .card {
@@ -63,6 +69,7 @@ body.day-theme .card {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  margin-left: -100px;
 }
 
 .icon-container img {
@@ -78,6 +85,7 @@ body.day-theme .card {
   align-items: center;
   justify-content: center;
   margin-top: -120px;
+  margin-left: -120px;
 }
 
 .feels-like {
@@ -102,12 +110,12 @@ body.day-theme .card {
 /* WeatherDisplay.css */
 .haiku-container-jp {
   text-align: center;
-  font-size: 24px;
+  font-size: 22px;
   font-family: 'Noto Sans JP', sans-serif;
-  letter-spacing: 4px;
+  letter-spacing: 4.5px;
   line-height: 1.7;
   margin-bottom: 8px;
-  height: 130px;
+  height: 120px;
   overflow: hidden;
 }
 
@@ -116,9 +124,9 @@ body.day-theme .card {
   font-size: 18px;
   font-family: 'Noto Sans JP', sans-serif;
   letter-spacing: 1px;
-  line-height: 1.2;
+  line-height: 1;
   margin-bottom: 8px;
-  height: 130px;
+  height: 120px;
   overflow: hidden;
 }
 
