@@ -53,14 +53,16 @@ function WeatherDisplay({ weather, selectedLocation, isDayTime, haiku }) {
     </div>
         {haiku && (
           <div className={`card haiku card ${isDayTime ? 'day-theme' : 'night-theme'}`}>
-            <div className="haiku-container">
-            <p>{haiku.line_1_en}</p>
-            <p>{haiku.line_2_en}</p>
-            <p>{haiku.line_3_en}</p>
-            <p>{haiku.line_1_jp}</p>
-            <p>{haiku.line_2_jp}</p>
-            <p>{haiku.line_3_jp}</p>
+            <div className="haiku-container-jp">
+              <p>{haiku.line_1_jp}</p>
+              <p>{haiku.line_2_jp}</p>
+              <p>{haiku.line_3_jp}</p>
             </div>
+            {/* <div className="haiku-container-en">
+              <p>{haiku.line_1_en}</p>
+              <p>{haiku.line_2_en}</p>
+              <p>{haiku.line_3_en}</p>
+            </div> */}
           </div>
         )}
       </div>

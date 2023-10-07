@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap');
+
+
 .cards-container {
   max-width: 600px;
   margin: 0 auto;
@@ -84,20 +87,16 @@ body.night-theme .card {
 
 
 /* WeatherDisplay.css */
-.haiku-container {
-  padding: 10px;
-  border-radius: 8px;
+.haiku-container-jp {
   text-align: center;
+  font-size: 24px;
+  font-family: 'Noto Sans JP', sans-serif;
+  letter-spacing: 4px;
+  line-height: 1.7;
+  margin-bottom: 8px;
 }
 
-.haiku-container h4 {
+.haiku-container-jp p {
   margin: 0;
   padding: 0;
-  font-size: 1.2em;
-}
-
-.haiku-container p {
-  margin: 0;
-  padding: 0;
-  font-size: 1em;
 }
