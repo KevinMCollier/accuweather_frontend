@@ -1,11 +1,19 @@
 .forecast-header {
   background-color: rgba(255,255,255,0.9);
-  padding: 5px 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   margin: 0 auto;
-  max-width: 350px;
+  max-width: 250px;
   margin-bottom: 20px;
   border-radius: 5px;
+  padding: 2px;
+}
+
+.location-name {
+  line-height: 15px;
+}
+
+.forecast-type {
+  line-height: 2px;
 }
 
 body.day-theme .forecast-header {
