@@ -21,7 +21,7 @@ function Forecast({ forecastData, loading, location }) {
               <div key={index} className="forecast-card">
                 <div className="forecast-date">
                   <p className="day-of-week">{dayOfWeek}</p>
-                  <p className="date">{formattedDate}</p>
+                  {/* <p className="date">{formattedDate}</p> */}
                 </div>
                 <div className="forecast-icon">
                   {icon && <img src={`http://openweathermap.org/img/w/${icon}.png`} alt={weather_description} />}
