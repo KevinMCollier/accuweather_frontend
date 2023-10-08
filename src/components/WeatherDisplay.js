@@ -46,7 +46,7 @@ function WeatherDisplay({ weather, selectedLocation, isDayTime, haiku }) {
           </div>
           {selectedLocation && (
             <div>
-              <Link to="/forecast" className="link">Hourly Weather</Link>
+              <Link to="/forecast" className="link">5-Day Forecast</Link>
             </div>
           )}
         </div>

@@ -1,11 +1,14 @@
 html {
   height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  min-height: 100vh;
+  min-height: 100%;
   margin: 0;
   overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
 }
 
 ul {
@@ -13,15 +16,11 @@ ul {
   padding-left: 0;
 }
 
-body {
-  background-color: #F5F5F5;
-  font-family: 'Roboto', sans-serif;
-}
-
 body.day-theme {
   background: linear-gradient(180deg,
   rgba(135,206,250,1) 20%,
   rgba(255,223,186,1) 100%);
+  background-attachment: fixed;
 }
 
 body.night-theme {
@@ -30,9 +29,5 @@ body.night-theme {
   rgba(1,0,20,1) 20%,
   rgba(10,35,66,1) 70%,
   rgb(40,62,81,1) 100%);
-  background-repeat: no-repeat;
-
-
-  /* rgba(40,62,81,1)
-  rgba(10,35,66,1) */
+  background-attachment: fixed;
 }
