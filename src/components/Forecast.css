@@ -1,11 +1,19 @@
 .forecast-header {
   background-color: rgba(255,255,255,0.9);
-  padding: 5px 5px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
   margin: 0 auto;
-  max-width: 350px;
+  max-width: 250px;
   margin-bottom: 20px;
   border-radius: 5px;
+  padding: 2px;
+}
+
+.location-name {
+  line-height: 15px;
+}
+
+.forecast-type {
+  line-height: 2px;
 }
 
 body.day-theme .forecast-header {
@@ -41,7 +49,6 @@ body.night-theme .forecast-container {
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 280px; /* adjust as needed */
-  height: 220px;
   margin: 0 auto; /* centers the card */
   display: flex;
   flex-direction: column; /* sets main axis to vertical */
@@ -60,9 +67,6 @@ body.night-theme .forecast-card {
   color: #EAEDED; /* Light text for night theme */
 }
 
-.forecast-icon {
-  margin-right: 20px;
-}
 
 .forecast-details {
   display: flex;
@@ -74,6 +78,22 @@ body.night-theme .forecast-card {
 .forecast-description,
 .forecast-date-time {
   margin: 5px 0;
+}
+
+.forecst-date {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.day-of-week {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-bottom: 2px;
+}
+
+.date {
+  font-size: 1em;
 }
 
 @media (max-width: 768px) {
@@ -91,6 +111,7 @@ body.night-theme .forecast-card {
   }
 
   .forecast-icon {
+    margin-left: 15px;
     margin-right: 15px;
   }
 
@@ -107,7 +128,7 @@ body.night-theme .forecast-card {
 @media (min-width: 769px) {
   .forecast-card {
     width: 150px;
-    height: 220px;
+    height: 280px;
   }
 
   .forecast-icon img {
