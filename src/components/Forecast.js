@@ -15,7 +15,7 @@ function Forecast({ forecastData, loading, location }) {
       </div>
         <div className="forecast-card-container">
           {forecastData.map((data, index) => {
-            const { dayOfWeek, formattedDate, temp_max, temp_min, weather_description, icon } = data;
+            const { dayOfWeek, temp_max, temp_min, weather_description, icon } = data;
 
             return (
               <div key={index} className="forecast-card">
