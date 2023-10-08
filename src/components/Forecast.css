@@ -1,10 +1,36 @@
+.forecast-header {
+  background-color: rgba(255,255,255,0.9);
+  padding: 5px 5px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin: 0 auto;
+  max-width: 350px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+}
+
+body.day-theme .forecast-header {
+  color: #2C3E50;
+}
+
+body.night-theme .forecast-header {
+  background-color: rgba(38, 54, 70, 0.9); /* Dark background for night theme */
+  color: #EAEDED;
+}
+
+body.night-theme .forecast-container {
+  background-color: rgba(38, 54, 70, 0.9); /* Dark background for night theme */
+  color: #EAEDED; /* Light text for night theme */
+}
+
 .forecast-card-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  margin-bottom: 25px;
 }
+
 
 .forecast-card {
   background-color: rgba(255,255,255,0.9);
@@ -14,12 +40,14 @@
   margin-bottom: 5px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  max-width: 400px; /* adjust as needed */
+  max-width: 280px; /* adjust as needed */
+  height: 220px;
   margin: 0 auto; /* centers the card */
   display: flex;
   flex-direction: column; /* sets main axis to vertical */
   align-items: center;
   justify-content: space-between;
+  transition: all 0.3s ease-in-out;
 }
 
 body.day-theme .forecast-card {
@@ -48,16 +76,42 @@ body.night-theme .forecast-card {
   margin: 5px 0;
 }
 
-.home-link {
-  display: inline-block;
-  margin-bottom: 20px;
-  padding: 10px 20px;
-  background-color: #007bff;
-  color: #ffffff;
-  text-decoration: none;
-  border-radius: 5px;
+@media (max-width: 768px) {
+  .forecast-card-container {
+    flex-direction: column;
+  }
+
+  .forecast-card {
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 100%;
+    height: auto;
+    padding: 10px;
+    margin-bottom: 5px;
+  }
+
+  .forecast-icon {
+    margin-right: 15px;
+  }
+
+  .forecast-details {
+    align-items: right;
+  }
+
+  .forecast-icon img {
+    width: 80px;
+    height: 80px;
+  }
 }
 
-.home-link:hover {
-  background-color: #0056b3;
+@media (min-width: 769px) {
+  .forecast-card {
+    width: 150px;
+    height: 220px;
+  }
+
+  .forecast-icon img {
+    width: 100px;
+    height: 100px;
+  }
 }

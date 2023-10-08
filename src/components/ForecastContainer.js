@@ -79,7 +79,7 @@ function ForecastContainer({ location, handleSearchResult }) {
   return (
     <div>
       <Navbar onSearch={handleNavbarSearch} />
-      {loading ? <div>Loading...</div> : <Forecast forecastData={forecastData} />}
+      {loading ? <div>Loading...</div> : <Forecast forecastData={forecastData} location={location} />}
     </div>
   )
 }
