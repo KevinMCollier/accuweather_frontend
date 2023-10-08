@@ -10,7 +10,7 @@ function Forecast({ forecastData, loading, location }) {
   return (
     <div>
       <div className="forecast-header">
-        {location && <h2 className="location-name">{location.city_name}, {location.country}</h2>}
+        {location && <h3 className="location-name">{location.city_name}, {location.country}</h3>}
         <h4 className="forecast-type">5-Day Forecast</h4>
       </div>
         <div className="forecast-card-container">
