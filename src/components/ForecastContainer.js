@@ -26,6 +26,9 @@ function ForecastContainer({ location, handleSearchResult }) {
       return acc;
     }, {});
 
+    const capitalizeFirstLetter = (string) => {
+      return string.charAt(0).toUpperCase() + string.slice(1);
+    }
     const finalData = Object.keys(aggregatedData).map(date => {
       const weatherDescription = aggregatedData[date].weather.reduce((acc, cur) => {
         acc[cur.description] = (acc[cur.description] || 0) + 1;
@@ -33,13 +36,19 @@ function ForecastContainer({ location, handleSearchResult }) {
       }, {});
 
       const mostFrequentWeather = Object.keys(weatherDescription).reduce((a, b) => weatherDescription[a] > weatherDescription[b] ? a : b);
-
+      const capitalizedWeatherDescription = capitalizeFirstLetter(mostFrequentWeather);
       const iconForMostFrequentWeather = aggregatedData[date].weather.find(w => w.description === mostFrequentWeather).icon;
+
+      const dateObject = new Date(date);
+      const dayOfWeek = dateObject.toLocaleDateString('en-US', { weekday: 'long'});
+      const formattedDate = dateObject.toLocaleDateString('en-US', { month: 'long', day: 'numeric' })
+
       return {
-        date,
-        temp_max: aggregatedData[date].temp_max,
-        temp_min: aggregatedData[date].temp_min,
-        weather_description: mostFrequentWeather,
+        dayOfWeek,
+        formattedDate,
+        temp_max: Math.round(aggregatedData[date].temp_max),
+        temp_min: Math.round(aggregatedData[date].temp_min),
+        weather_description: capitalizedWeatherDescription,
         icon: iconForMostFrequentWeather
       };
     });
